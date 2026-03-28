@@ -11,11 +11,16 @@ MODEL_WEIGHTS = "unet_v1_weights.pth"
 INPUT_DIR = './processed_data/input_bev'
 GT_DIR = './processed_data/ground_truth'
 
+# Auto-detect dataset size to support any number of files
+from NuScenesBevDataset import NuScenesBevDataset as _TempDataset
+_temp_dataset = _TempDataset(INPUT_DIR, GT_DIR)
+TOTAL_SAMPLES = len(_temp_dataset)
+del _temp_dataset
+
 # Set these to choose which samples to test
 # Enumerated
-
-START_IDX = 350
-END_IDX = 404
+START_IDX = 0
+END_IDX = TOTAL_SAMPLES  # Test all files
 
 def calculate_iou(preds, labels, n_classes=4):
     """
