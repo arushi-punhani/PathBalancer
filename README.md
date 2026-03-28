@@ -216,6 +216,15 @@ The model is evaluated on:
 - Total processed samples: 404
 - Training/validation split is sequential (not randomized for reproducibility)
 - Checkpoints resume from previous best validation loss if available
+- Repository should be publicly accessible during evaluation
+
+## Example Outputs / Results
+
+Example outputs (expected):
+- Input BEV image → Drivable/Non-Drivable mask (binary or 4-class)
+- Inference speed report (FPS)
+- Validation mIoU, per-class IoU, and validation loss over epochs
+- Visual comparison: ground truth mask vs predicted mask
 
 ## License
 
